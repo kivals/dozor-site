@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  // cacheComponents: true, // enable when 'use cache' is actually needed
 };
 
 export default nextConfig;

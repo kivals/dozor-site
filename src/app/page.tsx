@@ -1,18 +1,19 @@
-import { company } from "@/content/company";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { ObjectTypes } from "@/components/sections/ObjectTypes";
+import { Services } from "@/components/sections/Services";
 
 export default function HomePage() {
   return (
-    <main className="flex-1">
-      <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          {company.slogan}
-        </h1>
-        <p className="mt-4 max-w-2xl text-base text-neutral-600 sm:text-lg">
-          {company.legalName} — профессиональная команда с многолетним опытом
-          организации охраны объектов.
-        </p>
-      </section>
-      {/* Секции добавляются по блокам: Hero, About, Services, Principles,
+    <main className="flex flex-1 flex-col gap-5 lg:gap-12">
+      <Hero />
+      {/* About + ObjectTypes — одна непрерывная светлая зона (без зазора) */}
+      <div className="flex flex-col">
+        <About />
+        <ObjectTypes />
+      </div>
+      <Services />
+      {/* Секции добавляются по блокам: Principles,
           Clients, ContactSection — mobile-first. */}
     </main>
   );

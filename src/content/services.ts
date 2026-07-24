@@ -1,28 +1,53 @@
-import type { Service } from "./types";
+import type { Service, ServicesIntro } from "./types";
+
+export const servicesIntro: ServicesIntro = {
+  eyebrow: "Услуги",
+  title: "Комплексные решения под ваши задачи",
+  subtitle: "Различные направления охраны объектов",
+  cta: { label: "Подробнее", href: "/uslugi" },
+};
 
 export const services: Service[] = [
   {
     slug: "fizicheskaya-ohrana",
     title: "Физическая охрана объектов",
-    description:
-      "Профессиональная охрана коммерческих и промышленных объектов в Москве и области.",
-    icon: "shield",
-    features: ["Круглосуточный пост", "Контроль доступа", "Патрулирование территории"],
+    description: "Подготовленные сотрудники охраны",
+    icon: "shield-check",
   },
   {
-    slug: "pult-ohrana",
-    title: "Пультовая охрана",
-    description:
-      "Подключение объекта к пульту централизованного наблюдения с выездом группы реагирования.",
-    icon: "monitor",
-    features: ["Мониторинг сигнализации", "Группа быстрого реагирования", "Тревожная кнопка"],
+    slug: "propusknoy-rezhim",
+    title: "Обеспечение пропускного режима",
+    description: "Контроль доступа на объект",
+    icon: "access",
   },
   {
-    slug: "video-monitoring",
-    title: "Видеонаблюдение и мониторинг",
-    description:
-      "Проектирование, монтаж и обслуживание систем видеонаблюдения с удалённым контролем.",
+    slug: "vnutriobektovyy-rezhim",
+    title: "Контроль внутриобъектового режима",
+    description: "Соблюдение установленных регламентов",
+    icon: "lock-shield",
+  },
+  {
+    slug: "patrulirovanie",
+    title: "Патрулирование территории объектов",
+    description: "Регулярный контроль территории",
+    icon: "search",
+  },
+  {
+    slug: "massovye-meropriyatiya",
+    title: "Обеспечение безопасности массовых мероприятий",
+    description: "Поддержание порядка и безопасности",
+    icon: "people",
+  },
+  {
+    slug: "videonablyudenie",
+    title: "Видеонаблюдение и технические средства охраны",
+    description: "Технический контроль объекта",
     icon: "camera",
-    features: ["Проектирование системы", "Монтаж оборудования", "Удалённый доступ"],
+  },
+  {
+    slug: "pozharnaya-zaschita",
+    title: "Системы противопожарной защиты",
+    description: "Контроль противопожарной безопасности",
+    icon: "fire",
   },
 ];

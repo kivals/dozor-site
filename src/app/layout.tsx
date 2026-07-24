@@ -1,12 +1,6 @@
-import { Inter } from "next/font/google";
 import "@/styles/globals.css";
+import { involve } from "@/fonts/involve";
 import { defaultMetadata, organizationJsonLd } from "@/lib/seo";
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-});
 
 export const metadata = defaultMetadata;
 
@@ -16,8 +10,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="ru" className={`${involve.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans">
         {children}
         <script
           type="application/ld+json"

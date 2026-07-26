@@ -3,7 +3,7 @@ import { stats } from "@/content/stats";
 
 export function About() {
   return (
-    <section className="rounded-t-[28px] bg-surface px-6 pt-14 pb-10 lg:rounded-t-[40px] lg:px-16 lg:pt-20 lg:pb-10">
+    <section id="about" className="rounded-t-[28px] bg-surface px-6 pt-14 pb-10 lg:rounded-t-[40px] lg:px-16 lg:pt-20 lg:pb-10">
       <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-[150px]">
         <div className="flex max-w-[656px] flex-col gap-3">
           <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">

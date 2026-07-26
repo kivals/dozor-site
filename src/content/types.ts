@@ -45,11 +45,32 @@ export interface Region {
 export interface Client {
   name: string;
   logo: string;
+  width: number;
+}
+
+export interface ClientsContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  items: Client[];
 }
 
 export interface Principle {
   title: string;
   description: string;
+}
+
+export interface ControlItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ControlContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  items: ControlItem[];
 }
 
 export interface HeroFeature {
@@ -68,4 +89,14 @@ export interface AboutContent {
   eyebrow: string;
   heading: string;
   paragraphs: string[];
+}
+
+export interface ContactContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  modal: {
+    successTitle: string;
+    successText: string;
+  };
 }

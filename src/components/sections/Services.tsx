@@ -5,7 +5,7 @@ import { ServicesSlider } from "./ServicesSlider";
 
 export function Services() {
   return (
-    <section className="px-4 py-6 sm:px-6 lg:px-16 lg:py-10">
+    <section id="services" className="px-4 py-6 sm:px-6 lg:px-16 lg:py-10">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
         <div className="flex flex-col gap-5 lg:w-[333px] lg:shrink-0">
           <div className="flex flex-col gap-3">

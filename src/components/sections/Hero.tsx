@@ -1,30 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
 import { hero } from "@/content/hero";
+import { LeadModalTrigger } from "@/components/forms/LeadModalTrigger";
 
 function MessengerBadge() {
   return (
     <div className="flex shrink-0 flex-col gap-2 rounded-tl-2xl rounded-bl-2xl bg-white p-2">
-      <span className="relative block size-8 overflow-hidden rounded-full">
-        <Image
-          src="/hero/messenger-1.png"
-          alt="Написать нам"
-          fill
-          className="object-cover"
-        />
-        <Image
-          src="/hero/glyph.svg"
-          alt=""
-          width={18}
-          height={18}
-          className="absolute inset-0 m-auto"
-        />
-      </span>
       <Image
-        src="/hero/messenger-2.svg"
+        src="/socials/max.png"
+        alt="Написать в MAX"
+        width={32}
+        height={32}
+        className="size-8"
+      />
+      <Image
+        src="/socials/telegram.png"
         alt="Написать в Telegram"
         width={32}
         height={32}
+        className="size-8"
       />
     </div>
   );
@@ -32,7 +25,7 @@ function MessengerBadge() {
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden rounded-b-[28px] bg-navy px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 lg:flex lg:min-h-[682px] lg:flex-col lg:justify-center lg:rounded-b-[40px] lg:px-16 lg:py-16">
+    <section className="relative isolate overflow-hidden rounded-b-[28px] bg-navy px-4 pt-[calc(var(--header-h)+1rem)] pb-10 sm:px-6 sm:pb-12 lg:flex lg:min-h-[682px] lg:flex-col lg:justify-center lg:rounded-b-[40px] lg:px-16 lg:py-16">
       {/* Desktop: full-bleed background photo behind the text */}
       <Image
         src="/hero/background.jpg"
@@ -54,13 +47,10 @@ export function Hero() {
           </p>
         </div>
 
-        <Link
-          href={hero.cta.href}
-          className="inline-flex w-fit items-center gap-4 rounded-full bg-accent px-7 py-4 text-sm font-medium text-white transition hover:bg-accent/90 sm:text-base"
-        >
+        <LeadModalTrigger className="inline-flex w-fit items-center gap-4 rounded-full bg-accent px-7 py-4 text-sm font-medium text-white transition hover:bg-accent/90 sm:text-base">
           {hero.cta.label}
           <Image src="/hero/arrow.svg" alt="" width={12} height={7} />
-        </Link>
+        </LeadModalTrigger>
 
         {/* Mobile/tablet: full-bleed photo strip, not a rounded inset card */}
         <div className="relative -mx-4 h-56 overflow-hidden rounded-b-[20px] sm:-mx-6 sm:h-64 lg:hidden">
@@ -98,7 +88,7 @@ export function Hero() {
         </ul>
       </div>
 
-      <div className="absolute top-28 right-0 sm:top-32 lg:hidden">
+      <div className="absolute top-[calc(var(--header-h)+5rem)] right-0 lg:hidden">
         <MessengerBadge />
       </div>
       <div className="absolute top-6 right-0 hidden lg:top-1/3 lg:block">

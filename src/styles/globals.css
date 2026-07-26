@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  /* Height of the fixed header, incl. its outer padding. */
+  --header-h: 6rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 7rem;
+  }
 }
 
 @theme inline {
@@ -13,6 +21,11 @@
   --color-surface: #f4f8ff;
   --font-sans: var(--font-involve);
   --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
 }
 
 body {

@@ -2,6 +2,10 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { ObjectTypes } from "@/components/sections/ObjectTypes";
 import { Services } from "@/components/sections/Services";
+import { Control } from "@/components/sections/Control";
+import { Clients } from "@/components/sections/Clients";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { Vacancies } from "@/components/sections/Vacancies";
 
 export default function HomePage() {
   return (
@@ -13,8 +17,10 @@ export default function HomePage() {
         <ObjectTypes />
       </div>
       <Services />
-      {/* Секции добавляются по блокам: Principles,
-          Clients, ContactSection — mobile-first. */}
+      <Control />
+      <Clients />
+      <ContactSection />
+      <Vacancies />
     </main>
   );
 }

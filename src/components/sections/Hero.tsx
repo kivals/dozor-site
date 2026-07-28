@@ -12,10 +12,13 @@ export function Hero() {
         alt=""
         fill
         priority
+        quality={90}
         sizes="100vw"
         className="hidden object-cover lg:block"
       />
-      <div className="absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-navy lg:via-navy/60 lg:to-navy/0" />
+      {/* Gradients from the design: left fade-out + darkening under the header */}
+      <div className="absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-navy lg:from-24% lg:to-transparent lg:to-[58%]" />
+      <div className="absolute inset-x-0 top-0 hidden h-[152px] lg:block lg:bg-gradient-to-b lg:from-navy lg:to-transparent" />
 
       {/* Background is full-bleed, the content stays inside the page container */}
       <div className="container-page relative px-4 sm:px-6 lg:px-16">

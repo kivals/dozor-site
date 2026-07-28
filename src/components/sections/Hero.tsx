@@ -12,7 +12,7 @@ export function Hero() {
         alt=""
         fill
         priority
-        quality={90}
+        quality={85}
         sizes="100vw"
         className="hidden object-cover lg:block"
       />

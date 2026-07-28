@@ -21,9 +21,7 @@ export default function HomePage() {
         <Services />
         <Control />
         <Clients />
-      </div>
-      <ContactSection />
-      <div className="container-page flex flex-col gap-5 lg:gap-12">
+        <ContactSection />
         <Vacancies />
       </div>
     </main>

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { services, servicesIntro } from "@/content/services";
+import type { Service } from "@/content/types";
 import { ServicesSlider } from "./ServicesSlider";
 
-export function Services() {
+export function Services({ items = services }: { items?: Service[] }) {
   return (
     <section id="services" className="px-4 py-6 sm:px-6 lg:px-16 lg:py-10">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
@@ -26,7 +27,7 @@ export function Services() {
           </Link>
         </div>
 
-        <ServicesSlider services={services} />
+        <ServicesSlider services={items} />
       </div>
     </section>
   );

@@ -6,6 +6,8 @@ const envSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().optional(),
   TELEGRAM_CHAT_ID: z.string().optional(),
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: z.string().optional(),
+  /** "true" closes the whole site from search engines (preview deploys). */
+  NEXT_PUBLIC_NOINDEX: z.enum(["true", "false"]).default("false"),
 });
 
 export const env = envSchema.parse({
@@ -14,4 +16,7 @@ export const env = envSchema.parse({
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
   TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY,
+  NEXT_PUBLIC_NOINDEX: process.env.NEXT_PUBLIC_NOINDEX,
 });
+
+export const noindex = env.NEXT_PUBLIC_NOINDEX === "true";

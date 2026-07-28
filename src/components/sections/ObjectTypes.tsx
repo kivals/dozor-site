@@ -5,9 +5,16 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import { objectTypes } from "@/content/object-types";
+import type { ObjectType } from "@/content/types";
 import { CarouselArrows } from "@/components/ui/CarouselArrows";
 
-export function ObjectTypes() {
+export function ObjectTypes({
+  items = objectTypes.items,
+  className = "rounded-b-[28px] bg-surface lg:rounded-b-[40px]",
+}: {
+  items?: ObjectType[];
+  className?: string;
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
@@ -33,7 +40,7 @@ export function ObjectTypes() {
   const scrollNext = () => emblaApi?.scrollNext();
 
   return (
-    <section className="rounded-b-[28px] bg-surface px-4 py-10 sm:px-6 lg:rounded-b-[40px] lg:px-16 lg:py-10">
+    <section className={`px-4 py-10 sm:px-6 lg:px-16 lg:py-10 ${className}`}>
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
         <div className="flex flex-col gap-8 lg:w-[314px] lg:shrink-0">
           <div className="flex flex-col gap-3">
@@ -60,7 +67,7 @@ export function ObjectTypes() {
           className="-mx-4 min-w-0 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-1 lg:px-0"
         >
           <ul className="flex gap-5">
-            {objectTypes.items.map((item) => (
+            {items.map((item) => (
               <li
                 key={item.slug}
                 className="min-w-0 shrink-0 grow-0 basis-[82%] sm:basis-[46%] lg:basis-[calc((100%-40px)/3)]"

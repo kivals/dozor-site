@@ -1,9 +1,79 @@
+export interface ServiceHero {
+  title: string;
+  description: string;
+  image: string;
+  cta: string;
+}
+
+export interface ServiceOptionsGroup {
+  title: string;
+  /** Chips grouped into rows exactly as they are laid out in the design. */
+  rows: string[][];
+}
+
+export interface ServiceOptions {
+  eyebrow: string;
+  title: string;
+  base: ServiceOptionsGroup;
+  extra: ServiceOptionsGroup;
+}
+
+export interface ServiceProcessStep {
+  title: string;
+  description: string;
+}
+
+export interface ServiceProcess {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  cta: string;
+  steps: ServiceProcessStep[];
+}
+
+export interface ServiceBenefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ServiceBenefits {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  items: ServiceBenefit[];
+}
+
+export interface ServiceCase {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+}
+
+export interface ServiceCases {
+  eyebrow: string;
+  title: string;
+  items: ServiceCase[];
+}
+
 export interface Service {
   slug: string;
   title: string;
   description: string;
   icon: string;
   features?: string[];
+  hero?: ServiceHero;
+  objectTypes?: ObjectType[];
+  /** Cards shown in the "Комплексные решения" grid on the service page. */
+  solutions?: Service[];
+  options?: ServiceOptions;
+  process?: ServiceProcess;
+  benefits?: ServiceBenefits;
+  cases?: ServiceCases;
+  /** Numbered list shown instead of the stats grid in the About section. */
+  aboutHighlights?: string[];
 }
 
 export interface ServicesIntro {

@@ -33,7 +33,7 @@ function MailIcon() {
 
 export function Footer() {
   return (
-    <footer className="lg:px-16">
+    <footer className="container-page lg:px-16">
       <div className="rounded-t-[20px] bg-navy px-2.5 py-10 text-white lg:rounded-t-[40px] lg:px-16 lg:py-14">
         {/* Top: contacts + map */}
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">

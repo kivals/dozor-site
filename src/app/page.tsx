@@ -10,17 +10,22 @@ import { Vacancies } from "@/components/sections/Vacancies";
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col gap-5 lg:gap-12">
+      {/* Hero is full-bleed; everything below is capped at the design width. */}
       <Hero />
-      {/* About + ObjectTypes — одна непрерывная светлая зона (без зазора) */}
-      <div className="flex flex-col">
-        <About />
-        <ObjectTypes />
+      <div className="container-page flex flex-col gap-5 lg:gap-12">
+        {/* About + ObjectTypes — одна непрерывная светлая зона (без зазора) */}
+        <div className="flex flex-col">
+          <About />
+          <ObjectTypes />
+        </div>
+        <Services />
+        <Control />
+        <Clients />
       </div>
-      <Services />
-      <Control />
-      <Clients />
       <ContactSection />
-      <Vacancies />
+      <div className="container-page flex flex-col gap-5 lg:gap-12">
+        <Vacancies />
+      </div>
     </main>
   );
 }

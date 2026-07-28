@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { company } from "@/content/company";
-import { env } from "./env";
+import { env, noindex } from "./env";
 
 const siteUrl = env.NEXT_PUBLIC_SITE_URL;
 
@@ -18,6 +18,7 @@ export const defaultMetadata: Metadata = {
     siteName: company.legalName,
     url: siteUrl,
   },
+  ...(noindex && { robots: { index: false, follow: false } }),
 };
 
 export function organizationJsonLd() {

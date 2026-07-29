@@ -20,7 +20,7 @@ export function About({
             {about.eyebrow}
           </p>
           <h2 className="text-3xl leading-tight font-medium text-black">
-            {about.heading}
+            {about.heading} —
           </h2>
           <div className="flex flex-col gap-4 text-base leading-relaxed text-black">
             {about.paragraphs.map((paragraph) => (

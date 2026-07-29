@@ -61,12 +61,13 @@ export function ContactForm() {
             <span className="absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent opacity-0 transition-opacity" />
           </span>
           <span className="text-sm leading-snug text-white">
-            даю согласие на обработку моих{" "}
+            Я даю согласие на обработку моих персональных данных и подтверждаю,
+            что ознакомлен(а) с{" "}
             <Link
               href="/politika-konfidencialnosti"
               className="underline underline-offset-2 hover:text-accent"
             >
-              персональных данных
+              Политикой обработки персональных данных
             </Link>
           </span>
         </label>

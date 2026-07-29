@@ -1,10 +1,11 @@
+import { typograph } from "@/lib/typography";
 import type { AboutContent } from "./types";
 
-export const about: AboutContent = {
+export const about: AboutContent = typograph({
   eyebrow: "О компании",
   heading: "Группа компаний «Дозор»",
   paragraphs: [
     "профессиональная команда с многолетним опытом работы, выстроенными процессами и системным подходом к организации охраны объектов.",
     "Особое внимание уделяем контролю качества работы и оперативному взаимодействию с клиентами.",
   ],
-};
+});

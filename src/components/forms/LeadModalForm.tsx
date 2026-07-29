@@ -116,7 +116,7 @@ export function LeadModalForm({ onSuccess }: { onSuccess?: () => void }) {
         </button>
       </div>
 
-      <label className="flex w-[231px] cursor-pointer items-center gap-2.5 text-center">
+      <label className="flex w-full cursor-pointer items-center gap-2.5">
         <input
           type="checkbox"
           name="consent"
@@ -130,12 +130,13 @@ export function LeadModalForm({ onSuccess }: { onSuccess?: () => void }) {
           <span className="absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent opacity-0 transition-opacity" />
         </span>
         <span className="text-left text-xs leading-[1.5] text-navy">
-          даю согласие на обработку моих{" "}
+          Я даю согласие на обработку моих персональных данных и подтверждаю,
+          что ознакомлен(а) с{" "}
           <Link
             href="/politika-konfidencialnosti"
             className="text-accent underline underline-offset-2"
           >
-            персональных данных
+            Политикой обработки персональных данных
           </Link>
         </span>
       </label>

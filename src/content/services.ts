@@ -5,7 +5,6 @@ export const servicesIntro: ServicesIntro = typograph({
   eyebrow: "Услуги",
   title: "Комплексные решения под ваши задачи",
   subtitle: "Различные направления охраны объектов",
-  cta: { label: "Подробнее", href: "/uslugi" },
 });
 
 export const services: Service[] = typograph([

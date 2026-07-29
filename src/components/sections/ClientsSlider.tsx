@@ -17,7 +17,7 @@ function ClientLogo({ client }: { client: Client }) {
       alt={client.name}
       width={client.width}
       height={80}
-      className="h-20 w-auto max-w-full object-contain grayscale transition-[filter] duration-500 hover:grayscale-0"
+      className="h-20 w-auto max-w-full object-contain opacity-40 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
     />
   );
 }

@@ -5,8 +5,10 @@ import type { Client } from "@/content/types";
 import { useCarousel } from "@/components/ui/useCarousel";
 import { useMediaQuery } from "@/components/ui/useMediaQuery";
 
-/** Logos per pagination page — matches the six-per-view desktop strip. */
-const PAGE_SIZE = 6;
+/** Logos per pagination page — matches the seven-per-view desktop strip. */
+const PAGE_SIZE = 7;
+/** Mobile pages are a 3×2 grid. */
+const MOBILE_PAGE_SIZE = 6;
 
 function ClientLogo({ client }: { client: Client }) {
   return (
@@ -15,7 +17,7 @@ function ClientLogo({ client }: { client: Client }) {
       alt={client.name}
       width={client.width}
       height={80}
-      className="h-20 w-auto max-w-full object-contain"
+      className="h-20 w-auto max-w-full object-contain grayscale transition-[filter] duration-500 hover:grayscale-0"
     />
   );
 }
@@ -54,8 +56,9 @@ function Dots({
 function ClientPages({ clients }: { clients: Client[] }) {
   const [emblaRef, emblaApi, snaps, selected] = useCarousel();
   const pages = Array.from(
-    { length: Math.ceil(clients.length / PAGE_SIZE) },
-    (_, page) => clients.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE),
+    { length: Math.ceil(clients.length / MOBILE_PAGE_SIZE) },
+    (_, page) =>
+      clients.slice(page * MOBILE_PAGE_SIZE, (page + 1) * MOBILE_PAGE_SIZE),
   );
 
   return (
@@ -83,7 +86,7 @@ function ClientPages({ clients }: { clients: Client[] }) {
   );
 }
 
-/** Desktop: six logos per view, scrolled one at a time, dots mark pages. */
+/** Desktop: seven logos per view, scrolled one at a time, dots mark pages. */
 function ClientStrip({ clients }: { clients: Client[] }) {
   const [emblaRef, emblaApi, snaps, selected] = useCarousel({ loop: true });
 
@@ -94,7 +97,7 @@ function ClientStrip({ clients }: { clients: Client[] }) {
           {clients.map((client) => (
             <li
               key={client.logo}
-              className="flex flex-[0_0_16.666%] justify-center pl-10"
+              className="flex flex-[0_0_14.285%] justify-center pl-10"
             >
               <ClientLogo client={client} />
             </li>

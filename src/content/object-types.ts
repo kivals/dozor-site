@@ -1,6 +1,7 @@
+import { typograph } from "@/lib/typography";
 import type { ObjectTypesContent } from "./types";
 
-export const objectTypes: ObjectTypesContent = {
+export const objectTypes: ObjectTypesContent = typograph({
   eyebrow: "Услуги",
   heading: "Группа компаний «Дозор»",
   subtitle: "обеспечивает охрану объектов различного назначения",
@@ -23,5 +24,24 @@ export const objectTypes: ObjectTypesContent = {
       description: "Безопасность строительных площадок и временных объектов",
       image: "/object-types/stroitelnye.jpg",
     },
+    {
+      slug: "kommercheskaya-nedvizhimost",
+      title: "Коммерческая недвижимость",
+      description: "Охрана бизнес-центров и торговых объектов",
+      image: "/object-types/kommercheskaya.jpg",
+    },
+    {
+      slug: "kottedzhnye-poselki",
+      title: "Коттеджные поселки и территории",
+      description: "Охрана поселков, жилых комплексов и территорий",
+      image: "/object-types/kottedzhnye.jpg",
+    },
+    {
+      slug: "logisticheskie",
+      title: "Логистические объекты",
+      description:
+        "Контроль доступа, техническая безопасность, охрана грузовых потоков",
+      image: "/object-types/logisticheskie.jpg",
+    },
   ],
-};
+});

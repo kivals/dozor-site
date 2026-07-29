@@ -1,13 +1,14 @@
+import { typograph } from "@/lib/typography";
 import type { Service, ServicesIntro } from "./types";
 
-export const servicesIntro: ServicesIntro = {
+export const servicesIntro: ServicesIntro = typograph({
   eyebrow: "Услуги",
   title: "Комплексные решения под ваши задачи",
   subtitle: "Различные направления охраны объектов",
   cta: { label: "Подробнее", href: "/uslugi" },
-};
+});
 
-export const services: Service[] = [
+export const services: Service[] = typograph([
   {
     slug: "fizicheskaya-ohrana",
     title: "Физическая охрана объектов",
@@ -253,4 +254,4 @@ export const services: Service[] = [
     description: "Контроль противопожарной безопасности",
     icon: "fire",
   },
-];
+]);

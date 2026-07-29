@@ -1,3 +1,4 @@
+import { typograph } from "@/lib/typography";
 import { contacts } from "./contacts";
 
 export interface FooterSocial {
@@ -11,7 +12,7 @@ export interface FooterNavItem {
   href: string;
 }
 
-export const footer = {
+export const footer = typograph({
   eyebrow: "Контакты",
   title: "Связь с нами",
   phoneNote: contacts.phoneNote,
@@ -38,4 +39,4 @@ export const footer = {
     // Yandex map-widget by address (no API key required)
     query: "Электросталь, улица Карла Маркса",
   },
-};
+});

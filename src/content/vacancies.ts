@@ -1,3 +1,4 @@
+import { typograph } from "@/lib/typography";
 import { contacts } from "./contacts";
 
 export interface VacancyBenefit {
@@ -7,7 +8,7 @@ export interface VacancyBenefit {
   width: number;
 }
 
-export const vacancies = {
+export const vacancies = typograph({
   eyebrow: "Вакансии",
   title: "Приглашаем сотрудников охраны",
   subtitle:
@@ -21,4 +22,4 @@ export const vacancies = {
     { title: "Помощь в адаптации на новом объекте", icon: "people", width: 43 },
     { title: "Стабильная работа в надежной компании", icon: "shield", width: 31 },
   ] satisfies VacancyBenefit[],
-};
+});

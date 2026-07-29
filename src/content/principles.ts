@@ -1,6 +1,7 @@
+import { typograph } from "@/lib/typography";
 import type { Principle } from "./types";
 
-export const principles: Principle[] = [
+export const principles: Principle[] = typograph([
   {
     title: "Персональный контроль",
     description: "За каждым объектом закреплён ответственный менеджер и супервайзер.",
@@ -13,4 +14,4 @@ export const principles: Principle[] = [
     title: "Оперативное взаимодействие",
     description: "Быстрая связь с клиентом и реагирование на любые ситуации.",
   },
-];
+]);

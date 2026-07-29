@@ -1,6 +1,7 @@
+import { typograph } from "@/lib/typography";
 import type { FaqItem } from "./types";
 
-export const faq: FaqItem[] = [
+export const faq: FaqItem[] = typograph([
   {
     question: "Как быстро вы можете взять объект под охрану?",
     answer:
@@ -16,4 +17,4 @@ export const faq: FaqItem[] = [
     answer:
       "Да, компания имеет все необходимые лицензии на осуществление частной охранной деятельности.",
   },
-];
+]);

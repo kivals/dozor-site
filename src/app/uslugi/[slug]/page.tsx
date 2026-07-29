@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { services } from "@/content/services";
+import { plainText } from "@/lib/typography";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { About } from "@/components/sections/About";
 import { ObjectTypes } from "@/components/sections/ObjectTypes";
@@ -25,8 +26,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   return {
-    title: service.hero?.title ?? service.title,
-    description: service.hero?.description ?? service.description,
+    title: plainText(service.hero?.title ?? service.title),
+    description: plainText(service.hero?.description ?? service.description),
   };
 }
 

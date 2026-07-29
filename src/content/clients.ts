@@ -1,7 +1,8 @@
+import { typograph } from "@/lib/typography";
 import type { ClientsContent } from "./types";
 
 // Logo intrinsic width at 80px height (from Figma). Used for aspect ratio.
-export const clients: ClientsContent = {
+export const clients: ClientsContent = typograph({
   eyebrow: "Клиенты",
   title: "Опыт работы с объектами различного уровня",
   subtitle:
@@ -21,4 +22,4 @@ export const clients: ClientsContent = {
     { name: "Ашан", logo: "auchan", width: 107 },
     { name: "Haier", logo: "haier", width: 160 },
   ],
-};
+});

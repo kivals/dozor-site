@@ -1,6 +1,7 @@
+import { typograph } from "@/lib/typography";
 import type { ControlContent } from "./types";
 
-export const control: ControlContent = {
+export const control: ControlContent = typograph({
   eyebrow: "Контроль",
   title: "Система контроля объектов",
   subtitle:
@@ -43,4 +44,4 @@ export const control: ControlContent = {
         "Регулярная связь, контроль качества работы и оперативное информирование.",
     },
   ],
-};
+});

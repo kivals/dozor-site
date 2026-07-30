@@ -6,27 +6,24 @@ import { MessengerBadge } from "@/components/ui/MessengerBadge";
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden rounded-b-[28px] bg-navy pt-[calc(var(--header-h)+1rem)] pb-10 sm:pb-12 lg:flex lg:min-h-[682px] lg:flex-col lg:rounded-b-[40px] lg:pt-[169px] lg:pb-[66px]">
-      {/* Design is fixed at 1512px: cap the background layer so it doesn't stretch (and distort the photo's crop) on wider screens */}
-      <div className="absolute inset-0 mx-auto hidden max-w-[1512px] overflow-hidden lg:block">
-        {/* Photo offset to the right and bleeding past the edges, as in the design */}
-        <div className="absolute -top-1.5 right-[-2.6%] left-[19.1%] h-[705px]">
-          <Image
-            src="/hero/background.jpg"
-            alt=""
-            fill
-            priority
-            quality={85}
-            sizes="1512px"
-            className="object-cover"
-          />
-        </div>
-        {/* Gradients from the design: left fade-out + darkening under the header */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy from-24% to-transparent to-[58%]" />
-        <div className="absolute inset-x-0 top-0 h-[152px] bg-gradient-to-b from-navy to-transparent" />
+      {/* Desktop: photo bleeds full-width on the right, offset from the left as in the design */}
+      <div className="absolute -top-1.5 right-0 left-[19.1%] hidden h-[705px] lg:block">
+        <Image
+          src="/hero/background.jpg"
+          alt=""
+          fill
+          priority
+          quality={85}
+          sizes="84vw"
+          className="object-cover"
+        />
+      </div>
+      {/* Gradients from the design: left fade-out + darkening under the header */}
+      <div className="absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-navy lg:from-24% lg:to-transparent lg:to-[58%]" />
+      <div className="absolute inset-x-0 top-0 hidden h-[152px] lg:block lg:bg-gradient-to-b lg:from-navy lg:to-transparent" />
 
-        <div className="absolute top-1/3 right-0">
-          <MessengerBadge />
-        </div>
+      <div className="absolute top-6 right-0 hidden lg:top-1/3 lg:block">
+        <MessengerBadge />
       </div>
 
       {/* Background bleeds past the section, the content stays inside the page container */}

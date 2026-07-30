@@ -80,6 +80,7 @@ export interface ServicesIntro {
   eyebrow: string;
   title: string;
   subtitle: string;
+  cta: { label: string; href: string };
 }
 
 export interface ObjectType {

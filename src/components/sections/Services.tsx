@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { services, servicesIntro } from "@/content/services";
 import type { Service } from "@/content/types";
 import { ServicesSlider } from "./ServicesSlider";
@@ -16,6 +18,13 @@ export function Services({ items = services }: { items?: Service[] }) {
             </h2>
             <p className="text-base text-black">{servicesIntro.subtitle}</p>
           </div>
+          <Link
+            href={servicesIntro.cta.href}
+            className="inline-flex w-fit items-center gap-4 rounded-full bg-accent px-7 py-4 text-base text-white transition hover:bg-accent/90"
+          >
+            {servicesIntro.cta.label}
+            <Image src="/hero/arrow.svg" alt="" width={12} height={7} />
+          </Link>
         </div>
 
         <ServicesSlider services={items} />

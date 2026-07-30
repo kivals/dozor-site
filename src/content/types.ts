@@ -170,3 +170,22 @@ export interface ContactContent {
     successText: string;
   };
 }
+
+export interface DocumentItem {
+  title: string;
+  href: string;
+}
+
+export interface DocumentsTab {
+  id: string;
+  label: string;
+  items: DocumentItem[];
+}
+
+export interface DocumentsContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  tabs: DocumentsTab[];
+  downloadLabel: string;
+}

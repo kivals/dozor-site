@@ -10,6 +10,7 @@ import { ServiceOptions } from "@/components/sections/ServiceOptions";
 import { ServiceProcess } from "@/components/sections/ServiceProcess";
 import { ServiceBenefits } from "@/components/sections/ServiceBenefits";
 import { ServiceCases } from "@/components/sections/ServiceCases";
+import { Documents } from "@/components/sections/Documents";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -54,6 +55,7 @@ export default async function ServicePage({ params }: Params) {
       {service.process && <ServiceProcess process={service.process} />}
       {service.benefits && <ServiceBenefits benefits={service.benefits} />}
       {service.cases && <ServiceCases cases={service.cases} />}
+      <Documents />
     </main>
   );
 }

@@ -34,7 +34,7 @@ export const footer = typograph({
     { label: "Новости", href: "/novosti" },
     { label: "Контакты", href: "/#contacts" },
   ] satisfies FooterNavItem[],
-  copyright: "ГП «Дозор» 2000–2026 ©",
+  copyright: "ГК «Дозор» 2000–2026 ©",
   map: {
     // Yandex map-widget by address (no API key required)
     query: "Электросталь, улица Карла Маркса, 1",

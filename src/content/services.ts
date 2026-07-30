@@ -176,7 +176,7 @@ export const services: Service[] = typograph([
       ],
     },
     benefits: {
-      eyebrow: "ГП Дозор",
+      eyebrow: "ГК Дозор",
       title: "Преимущества",
       subtitle: "Тут будет какой-то небольшой текст",
       items: [

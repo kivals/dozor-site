@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import type { Service } from "@/content/types";
@@ -19,23 +20,26 @@ const iconWidth: Record<string, number> = {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <div className="flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px]">
+    <Link
+      href={`/uslugi/${service.slug}`}
+      className="group flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px] transition-colors duration-500 hover:border-accent hover:bg-accent"
+    >
       <Image
         src={`/services/${service.icon}.svg`}
         alt=""
         width={iconWidth[service.icon] ?? 36}
         height={36}
-        className="h-9 w-auto shrink-0 self-start"
+        className="h-9 w-auto shrink-0 self-start transition duration-500 group-hover:brightness-0 group-hover:invert"
       />
       <div className="flex flex-col gap-1.5">
-        <h3 className="text-lg leading-snug font-semibold text-black">
+        <h3 className="text-lg leading-snug font-semibold text-black transition-colors duration-500 group-hover:text-white">
           {service.title}
         </h3>
-        <p className="text-base leading-snug text-black">
+        <p className="text-base leading-snug text-black transition-colors duration-500 group-hover:text-white">
           {service.description}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 

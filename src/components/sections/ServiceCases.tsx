@@ -21,51 +21,40 @@ export function ServiceCases({ cases }: { cases: ServiceCasesContent }) {
         </h2>
       </div>
 
-      <div ref={emblaRef} className="mt-8 overflow-hidden lg:mt-[43px]">
-        <ul className="flex">
+      <CarouselArrows
+        canPrev={selected > 0}
+        canNext={selected < snaps.length - 1}
+        onPrev={() => emblaApi?.scrollPrev()}
+        onNext={() => emblaApi?.scrollNext()}
+        label="кейсы"
+        className="mt-5"
+      />
+
+      <div ref={emblaRef} className="mt-6 overflow-hidden lg:mt-[30px]">
+        {/* Cards only share a height from lg up, where the design fixes it. */}
+        <ul className="flex items-start gap-6 lg:items-stretch">
           {cases.items.map((item) => (
             <li
               key={item.slug}
-              className="min-w-0 shrink-0 grow-0 basis-full rounded-[20px] bg-white p-[30px] lg:min-h-[519px] lg:p-[34px]"
+              className="flex min-w-0 shrink-0 grow-0 basis-[85%] flex-col gap-6 rounded-[20px] bg-white p-[29px] sm:basis-[60%] lg:basis-[calc(50%-12px)]"
             >
-              <div className="flex flex-col gap-8 lg:h-full lg:flex-row lg:gap-10">
-                <div className="flex flex-col justify-between gap-8 lg:w-[41%] lg:shrink-0 lg:pl-2.5">
-                  <div className="flex max-w-[349px] flex-col gap-[5px]">
-                    <h3 className="text-3xl leading-tight font-medium text-black">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-black">{item.description}</p>
-                  </div>
+              <div className="flex flex-col gap-[5px]">
+                <h3 className="text-[25px] leading-[30px] font-medium text-black">
+                  {item.title}
+                </h3>
+                <p className="text-base leading-[22px] text-black">
+                  {item.description}
+                </p>
+              </div>
 
-                  <ul className="flex flex-wrap gap-3">
-                    {item.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full bg-surface px-4 py-[7px] text-xs font-semibold text-navy"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <CarouselArrows
-                    canPrev={selected > 0}
-                    canNext={selected < snaps.length - 1}
-                    onPrev={() => emblaApi?.scrollPrev()}
-                    onNext={() => emblaApi?.scrollNext()}
-                    label="кейсы"
-                  />
-                </div>
-
-                <div className="relative aspect-[791/455] overflow-hidden rounded-[20px] lg:h-auto lg:flex-1">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(min-width: 1024px) 55vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="relative aspect-[625/294] w-full overflow-hidden rounded-[20px] lg:mt-auto">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  className="object-cover"
+                />
               </div>
             </li>
           ))}

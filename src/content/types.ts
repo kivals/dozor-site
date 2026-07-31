@@ -106,6 +106,12 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface FaqContent {
+  eyebrow: string;
+  title: string;
+  items: FaqItem[];
+}
+
 export interface Region {
   id: string;
   name: string;
@@ -201,4 +207,18 @@ export interface GeographyContent {
   cta: string;
   features: GeographyFeature[];
   cities: string[];
+}
+
+export interface Review {
+  author: string;
+  objectType: string;
+  text: string;
+  rating: string;
+}
+
+export interface ReviewsContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  items: Review[];
 }

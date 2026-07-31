@@ -3,6 +3,7 @@ import Link from "next/link";
 import { footer } from "@/content/footer";
 import { YandexMap } from "@/components/maps/YandexMap";
 import { PhoneBlock } from "@/components/ui/PhoneBlock";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 function MailIcon() {
   return (
@@ -31,87 +32,160 @@ function MailIcon() {
   );
 }
 
-export function Footer() {
+function ContactsWithMap() {
+  return (
+    <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">
+      <div className="flex flex-col gap-8 lg:w-[482px] lg:shrink-0">
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
+            {footer.eyebrow}
+          </p>
+          <p className="text-3xl leading-tight font-medium text-white">
+            {footer.title}
+          </p>
+        </div>
+
+        <div className="flex gap-7">
+          {footer.socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              aria-label={social.name}
+              className="transition-opacity hover:opacity-80"
+            >
+              <Image
+                src={social.icon}
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10"
+              />
+            </a>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-8">
+          <PhoneBlock />
+
+          <div className="flex items-center gap-4">
+            <Image src="/footer/location.svg" alt="" width={17} height={21} />
+            <div>
+              <p className="text-xs text-surface">адрес:</p>
+              <p className="text-xl leading-snug font-medium text-white">
+                {footer.address.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <MailIcon />
+            <div>
+              <p className="text-xs text-surface">e-mail:</p>
+              <a
+                href={`mailto:${footer.email}`}
+                className="text-xl font-medium text-white transition-colors hover:text-accent"
+              >
+                {footer.email}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="-mx-2.5 w-[calc(100%+1.25rem)] lg:mx-0 lg:w-auto lg:flex-1">
+        <YandexMap
+          query={footer.map.query}
+          className="h-[328px] w-full rounded-[20px] lg:h-full lg:min-h-[400px]"
+        />
+      </div>
+    </div>
+  );
+}
+
+function FeedbackCard() {
+  return (
+    <div className="relative overflow-hidden rounded-[20px] bg-surface px-5 py-8 sm:px-10 lg:rounded-[30px] lg:px-10 lg:py-5">
+      {/* Soft glow accent from the design */}
+      <div className="pointer-events-none absolute -top-40 left-1/4 hidden h-[413px] w-[895px] rounded-full bg-[#7eb4f8] opacity-25 blur-[160px] lg:block" />
+
+      <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-[150px]">
+        <div className="flex flex-col gap-5 lg:flex-1">
+          <div className="flex flex-col gap-2.5">
+            <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
+              {footer.feedback.eyebrow}
+            </p>
+            <p className="text-3xl leading-tight font-medium text-black">
+              {footer.feedback.title}
+            </p>
+            <p className="max-w-[846px] text-base text-black">
+              {footer.feedback.subtitle}
+            </p>
+          </div>
+
+          <ContactForm tone="light" submitLabel={footer.feedback.submitLabel} />
+        </div>
+
+        <div className="flex flex-col gap-8 lg:w-[232px] lg:shrink-0">
+          <div>
+            <p className="text-xs text-accent">адрес:</p>
+            <p className="text-xl leading-snug font-medium text-black">
+              {footer.address.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs text-accent">e-mail:</p>
+            <a
+              href={`mailto:${footer.email}`}
+              className="text-xl font-medium text-black transition-colors hover:text-accent"
+            >
+              {footer.email}
+            </a>
+          </div>
+
+          <div className="flex gap-7">
+            {footer.socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                aria-label={social.name}
+                className="transition-opacity hover:opacity-80"
+              >
+                <Image
+                  src={social.icon}
+                  alt=""
+                  width={41}
+                  height={41}
+                  className="h-10 w-10"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Footer({
+  variant = "contacts",
+}: {
+  variant?: "contacts" | "feedback";
+}) {
   return (
     <footer>
       {/* Background is full-bleed, the content stays inside the page container */}
       <div className="rounded-t-[20px] bg-navy py-10 text-white lg:rounded-t-[40px] lg:py-14">
         <div className="container-page px-2.5 lg:px-16">
-          {/* Top: contacts + map */}
-          <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">
-            <div className="flex flex-col gap-8 lg:w-[482px] lg:shrink-0">
-              <div className="flex flex-col gap-3">
-                <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-                  {footer.eyebrow}
-                </p>
-                <p className="text-3xl leading-tight font-medium text-white">
-                  {footer.title}
-                </p>
-              </div>
-
-              <div className="flex gap-7">
-                {footer.socials.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    aria-label={social.name}
-                    className="transition-opacity hover:opacity-80"
-                  >
-                    <Image
-                      src={social.icon}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className="h-10 w-10"
-                    />
-                  </a>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-8">
-                <PhoneBlock />
-
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/footer/location.svg"
-                    alt=""
-                    width={17}
-                    height={21}
-                  />
-                  <div>
-                    <p className="text-xs text-surface">адрес:</p>
-                    <p className="text-xl leading-snug font-medium text-white">
-                      {footer.address.map((line) => (
-                        <span key={line} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <MailIcon />
-                  <div>
-                    <p className="text-xs text-surface">e-mail:</p>
-                    <a
-                      href={`mailto:${footer.email}`}
-                      className="text-xl font-medium text-white transition-colors hover:text-accent"
-                    >
-                      {footer.email}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="-mx-2.5 w-[calc(100%+1.25rem)] lg:mx-0 lg:w-auto lg:flex-1">
-              <YandexMap
-                query={footer.map.query}
-                className="h-[328px] w-full rounded-[20px] lg:h-full lg:min-h-[400px]"
-              />
-            </div>
-          </div>
+          {variant === "feedback" ? <FeedbackCard /> : <ContactsWithMap />}
 
           {/* Bottom: logo + nav + phone */}
           <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16">

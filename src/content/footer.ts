@@ -35,6 +35,13 @@ export const footer = typograph({
     { label: "Контакты", href: "/#contacts" },
   ] satisfies FooterNavItem[],
   copyright: "ГК «Дозор» 2000–2026 ©",
+  feedback: {
+    eyebrow: "обратная связь",
+    title: "Остались вопросы об охране предприятий?",
+    subtitle:
+      "заполните форму, и мы свяжемся с вами. Подберем оптимальное решение для охраны производственных объектов и рассчитаем смету. Качественная охрана объектов начинается с аудита",
+    submitLabel: "Заказать расчет для промышленных объектов",
+  },
   map: {
     // Yandex map-widget by address (no API key required)
     query: "Электросталь, улица Карла Маркса, 1",

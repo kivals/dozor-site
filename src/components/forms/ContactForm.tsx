@@ -9,13 +9,35 @@ import { PHONE_PLACEHOLDER, nextPhoneValue } from "@/lib/phone";
 
 const initialState: LeadFormState = { status: "idle" };
 
-const fieldClass =
-  "w-full rounded-full border border-surface/50 bg-transparent px-[30px] py-[15px] text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-accent";
+type Tone = "dark" | "light";
 
-export function ContactForm() {
+const fieldClasses: Record<Tone, string> = {
+  dark: "w-full rounded-full border border-surface/50 bg-transparent px-[30px] py-[15px] text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-accent",
+  light:
+    "w-full rounded-full border border-navy bg-[#f7faff] px-[30px] py-[15px] text-base text-black placeholder:text-black/50 outline-none transition-colors focus:border-accent",
+};
+
+const consentClasses: Record<Tone, string> = {
+  dark: "text-sm leading-snug text-white",
+  light: "text-xs leading-[18px] text-black",
+};
+
+const errorClasses: Record<Tone, string> = {
+  dark: "text-red-300",
+  light: "text-red-600",
+};
+
+export function ContactForm({
+  tone = "dark",
+  submitLabel = "Отправить заявку",
+}: {
+  tone?: Tone;
+  submitLabel?: string;
+}) {
   const [state, formAction, pending] = useActionState(submitLead, initialState);
   const [phone, setPhone] = useState("");
   const errors = state.status === "error" ? state.errors : undefined;
+  const fieldClass = fieldClasses[tone];
 
   return (
     <form action={formAction} className="flex flex-col gap-5" noValidate>
@@ -23,7 +45,9 @@ export function ContactForm() {
         <div className="flex-1">
           <input name="name" placeholder="Ваше имя" className={fieldClass} />
           {errors?.name && (
-            <p className="mt-1.5 pl-4 text-sm text-red-300">{errors.name[0]}</p>
+            <p className={`mt-1.5 pl-4 text-sm ${errorClasses[tone]}`}>
+              {errors.name[0]}
+            </p>
           )}
         </div>
         <div className="flex-1">
@@ -39,7 +63,9 @@ export function ContactForm() {
             className={fieldClass}
           />
           {errors?.phone && (
-            <p className="mt-1.5 pl-4 text-sm text-red-300">{errors.phone[0]}</p>
+            <p className={`mt-1.5 pl-4 text-sm ${errorClasses[tone]}`}>
+              {errors.phone[0]}
+            </p>
           )}
         </div>
         <button
@@ -47,7 +73,7 @@ export function ContactForm() {
           disabled={pending}
           className="inline-flex shrink-0 items-center justify-center gap-4 rounded-full bg-accent px-[30px] py-[15px] text-base text-white transition hover:bg-accent/90 disabled:opacity-60"
         >
-          {pending ? "Отправляем…" : "Отправить заявку"}
+          {pending ? "Отправляем…" : submitLabel}
           {!pending && (
             <Image src="/hero/arrow.svg" alt="" width={12} height={7} />
           )}
@@ -60,9 +86,15 @@ export function ContactForm() {
           <span className="relative flex size-[23px] shrink-0 rounded-full border border-accent peer-checked:[&>span]:opacity-100">
             <span className="absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent opacity-0 transition-opacity" />
           </span>
-          <span className="text-sm leading-snug text-white">
-            Я даю согласие на обработку моих персональных данных и подтверждаю,
-            что ознакомлен(а) с{" "}
+          <span className={consentClasses[tone]}>
+            Я даю согласие на обработку моих{" "}
+            <Link
+              href="/politika-konfidencialnosti"
+              className="underline underline-offset-2 hover:text-accent"
+            >
+              персональных данных
+            </Link>{" "}
+            и подтверждаю, что ознакомлен(а) с{" "}
             <Link
               href="/politika-konfidencialnosti"
               className="underline underline-offset-2 hover:text-accent"
@@ -72,7 +104,9 @@ export function ContactForm() {
           </span>
         </label>
         {errors?.consent && (
-          <p className="pl-8 text-sm text-red-300">{errors.consent[0]}</p>
+          <p className={`pl-8 text-sm ${errorClasses[tone]}`}>
+            {errors.consent[0]}
+          </p>
         )}
       </div>
 
@@ -82,7 +116,7 @@ export function ContactForm() {
         </p>
       )}
       {state.status === "error" && state.message && (
-        <p className="text-sm text-red-300">{state.message}</p>
+        <p className={`text-sm ${errorClasses[tone]}`}>{state.message}</p>
       )}
     </form>
   );

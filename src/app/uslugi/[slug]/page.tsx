@@ -12,6 +12,9 @@ import { ServiceBenefits } from "@/components/sections/ServiceBenefits";
 import { ServiceCases } from "@/components/sections/ServiceCases";
 import { Documents } from "@/components/sections/Documents";
 import { Geography } from "@/components/sections/Geography";
+import { Reviews } from "@/components/sections/Reviews";
+import { Faq } from "@/components/sections/Faq";
+import { Footer } from "@/components/layout/Footer";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -42,22 +45,27 @@ export default async function ServicePage({ params }: Params) {
   }
 
   return (
-    <main className="container-page flex flex-1 flex-col gap-5 lg:gap-12">
-      <ServiceHero service={service} />
-      <About
-        rounded="rounded-[20px] lg:rounded-[40px]"
-        highlights={service.aboutHighlights}
-      />
-      {service.objectTypes && (
-        <ObjectTypes items={service.objectTypes} className="" />
-      )}
-      {service.solutions && <Services items={service.solutions} />}
-      {service.options && <ServiceOptions options={service.options} />}
-      {service.process && <ServiceProcess process={service.process} />}
-      {service.benefits && <ServiceBenefits benefits={service.benefits} />}
-      {service.cases && <ServiceCases cases={service.cases} />}
-      <Documents />
-      <Geography />
-    </main>
+    <>
+      <main className="container-page flex flex-1 flex-col gap-5 lg:gap-12">
+        <ServiceHero service={service} />
+        <About
+          rounded="rounded-[20px] lg:rounded-[40px]"
+          highlights={service.aboutHighlights}
+        />
+        {service.objectTypes && (
+          <ObjectTypes items={service.objectTypes} className="" />
+        )}
+        {service.solutions && <Services items={service.solutions} />}
+        {service.options && <ServiceOptions options={service.options} />}
+        {service.process && <ServiceProcess process={service.process} />}
+        {service.benefits && <ServiceBenefits benefits={service.benefits} />}
+        {service.cases && <ServiceCases cases={service.cases} />}
+        <Documents />
+        <Geography />
+        <Reviews />
+        <Faq />
+      </main>
+      <Footer variant="feedback" />
+    </>
   );
 }

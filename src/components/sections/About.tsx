@@ -39,7 +39,10 @@ export function About({
                 <p className="text-[40px] leading-none font-semibold text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="text-base leading-snug text-black">{highlight}</p>
+                {/* Caption width from the design, so the last item wraps onto two lines */}
+                <p className="text-base leading-snug text-black lg:max-w-[259px]">
+                  {highlight}
+                </p>
               </li>
             ))}
           </ol>

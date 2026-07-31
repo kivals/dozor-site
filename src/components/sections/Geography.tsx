@@ -4,7 +4,7 @@ import { LeadModalTrigger } from "@/components/forms/LeadModalTrigger";
 
 function CityTicker() {
   return (
-    <div className="overflow-hidden rounded-[20px] bg-navy py-6">
+    <div className="overflow-hidden bg-navy py-6 lg:rounded-[20px]">
       <div className="animate-marquee flex w-max gap-[61px] pl-[61px]">
         {/* Duplicated so the -50% shift loops without a visible seam. */}
         {[0, 1].map((pass) => (
@@ -27,7 +27,7 @@ function CityTicker() {
 
 export function Geography() {
   return (
-    <section className="relative rounded-[20px] bg-surface px-4 pt-8 pb-6 sm:px-6 lg:px-[59px] lg:pt-[62px] lg:pb-[125px]">
+    <section className="relative overflow-hidden rounded-[20px] bg-surface px-4 pt-8 pb-6 sm:px-6 lg:overflow-visible lg:px-[59px] lg:pt-[62px] lg:pb-[125px]">
       <div className="relative flex flex-col gap-7 lg:w-[568px]">
         <div className="flex flex-col gap-2.5">
           <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
@@ -78,7 +78,8 @@ export function Geography() {
       />
 
       {/* Sits above the map, which runs under it as in the design. */}
-      <div className="relative z-10 mt-8 lg:absolute lg:inset-x-0 lg:bottom-7 lg:mt-0">
+      {/* Mobile: the ticker runs edge to edge, cancelling the section padding */}
+      <div className="relative z-10 -mx-4 mt-8 sm:-mx-6 lg:absolute lg:inset-x-0 lg:bottom-7 lg:mx-0 lg:mt-0">
         <CityTicker />
       </div>
     </section>

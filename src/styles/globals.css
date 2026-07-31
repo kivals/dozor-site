@@ -21,6 +21,20 @@
   --color-surface: #f4f8ff;
   --font-sans: var(--font-involve);
   --font-mono: var(--font-geist-mono);
+  --animate-marquee: marquee 45s linear infinite;
+}
+
+/* The city ticker duplicates its list, so a -50% shift loops seamlessly. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 
 html {

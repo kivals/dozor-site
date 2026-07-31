@@ -49,7 +49,6 @@ export interface ServiceCase {
   title: string;
   description: string;
   image: string;
-  tags: string[];
 }
 
 export interface ServiceCases {
@@ -188,4 +187,18 @@ export interface DocumentsContent {
   subtitle: string;
   tabs: DocumentsTab[];
   downloadLabel: string;
+}
+
+export interface GeographyFeature {
+  title: string;
+  description: string;
+}
+
+export interface GeographyContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  cta: string;
+  features: GeographyFeature[];
+  cities: string[];
 }

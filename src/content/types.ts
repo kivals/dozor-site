@@ -57,12 +57,18 @@ export interface ServiceCases {
   items: ServiceCase[];
 }
 
+export interface ServiceSeo {
+  title: string;
+  description: string;
+}
+
 export interface Service {
   slug: string;
   title: string;
   description: string;
   icon: string;
   features?: string[];
+  seo?: ServiceSeo;
   hero?: ServiceHero;
   objectTypes?: ObjectType[];
   /** Cards shown in the "Комплексные решения" grid on the service page. */

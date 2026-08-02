@@ -35,17 +35,22 @@ export function ServiceHero({ service }: { service: Service }) {
 
       <div className="relative isolate flex min-h-[420px] flex-col justify-center overflow-hidden rounded-[20px] bg-navy px-5 py-10 lg:min-h-[475px] lg:rounded-[40px] lg:px-[60px] lg:py-10">
         {hero && (
-          <Image
-            src={hero.image}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+          // Desktop: photo keeps the design offset (329/-48 in a 1457x475 card);
+          // mobile falls back to a plain cover fill
+          <div className="absolute inset-0 lg:inset-auto lg:top-[-10.1%] lg:left-[22.6%] lg:h-[120.2%] lg:w-[98%]">
+            <Image
+              src={hero.image}
+              alt=""
+              fill
+              priority
+              quality={85}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
         )}
         <div className="absolute inset-x-0 top-0 h-[152px] bg-gradient-to-b from-navy/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/0 lg:via-navy/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/0 lg:from-24% lg:via-navy/50" />
 
         <div className="relative flex flex-col gap-6 lg:max-w-[650px] lg:gap-[34px]">
           <div className="flex flex-col gap-2.5">

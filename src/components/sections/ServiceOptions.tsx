@@ -44,7 +44,7 @@ function OptionsCard({
     <div
       className={`flex flex-col gap-5 rounded-[20px] p-[30px] lg:px-5 ${cardStyles[variant]} ${className ?? ""}`}
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex items-center justify-between gap-4">
         <h3
           className={`text-2xl leading-tight font-semibold ${titleStyles[variant]}`}
         >

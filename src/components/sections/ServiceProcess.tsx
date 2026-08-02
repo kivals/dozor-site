@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { LeadModalTrigger } from "@/components/forms/LeadModalTrigger";
+import { useCarousel } from "@/components/ui/useCarousel";
+import { CarouselArrows } from "@/components/ui/CarouselArrows";
 import type { ServiceProcess as ServiceProcessContent } from "@/content/types";
 
 export function ServiceProcess({
@@ -7,6 +11,12 @@ export function ServiceProcess({
 }: {
   process: ServiceProcessContent;
 }) {
+  // Steps slide on mobile and lay out as a grid from lg up, as in the design.
+  const [emblaRef, emblaApi, snaps, selected] = useCarousel({
+    containScroll: "trimSnaps",
+    breakpoints: { "(min-width: 1024px)": { active: false } },
+  });
+
   return (
     <section className="relative isolate overflow-hidden rounded-[20px] bg-navy px-4 py-10 sm:px-6 lg:px-16 lg:py-[55px]">
       {/* Soft blue glow behind the cards */}
@@ -29,21 +39,37 @@ export function ServiceProcess({
           </LeadModalTrigger>
         </div>
 
-        <ol className="grid gap-10 pt-5 sm:grid-cols-2 lg:flex-1 lg:grid-cols-3 lg:gap-x-5">
-          {process.steps.map((step, index) => (
-            <li
-              key={step.title}
-              className="relative rounded-[25px] bg-white px-[30px] pt-[52px] pb-[30px] lg:min-h-[189px]"
-            >
-              <span className="absolute -top-5 left-[22px] flex size-[60px] items-center justify-center rounded-full bg-accent text-[33px] leading-none font-semibold text-white">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-xl font-semibold text-black">{step.title}</h3>
-              <p className="mt-1 text-base text-black">{step.description}</p>
-            </li>
-          ))}
-        </ol>
+        <div
+          ref={emblaRef}
+          className="-mx-4 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-1 lg:overflow-visible lg:px-0"
+        >
+          <ol className="flex gap-5 pt-5 lg:grid lg:grid-cols-3 lg:gap-x-5 lg:gap-y-10">
+            {process.steps.map((step, index) => (
+              <li
+                key={step.title}
+                className="relative min-w-0 shrink-0 grow-0 basis-[85%] rounded-[25px] bg-white px-[30px] pt-[52px] pb-[30px] sm:basis-[60%] lg:basis-auto lg:min-h-[189px]"
+              >
+                <span className="absolute -top-5 left-[22px] flex size-[60px] items-center justify-center rounded-full bg-accent text-[33px] leading-none font-semibold text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-xl font-semibold text-black">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-base text-black">{step.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
+
+      <CarouselArrows
+        canPrev={selected > 0}
+        canNext={selected < snaps.length - 1}
+        onPrev={() => emblaApi?.scrollPrev()}
+        onNext={() => emblaApi?.scrollNext()}
+        label="этапы работы"
+        className="mt-10 justify-center lg:hidden"
+      />
     </section>
   );
 }

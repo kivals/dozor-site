@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services } from "@/content/services";
+import { publishedServices } from "@/content/services";
 import { plainText } from "@/lib/typography";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { About } from "@/components/sections/About";
@@ -18,20 +18,24 @@ import { Footer } from "@/components/layout/Footer";
 
 type Params = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
+  return publishedServices.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((item) => item.slug === slug);
+  const service = publishedServices.find((item) => item.slug === slug);
 
   if (!service) {
     return {};
   }
 
   return {
-    title: plainText(service.seo?.title ?? service.hero?.title ?? service.title),
+    title: plainText(
+      service.seo?.title ?? service.hero?.title ?? service.title,
+    ),
     description: plainText(
       service.seo?.description ??
         service.hero?.description ??
@@ -42,7 +46,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function ServicePage({ params }: Params) {
   const { slug } = await params;
-  const service = services.find((item) => item.slug === slug);
+  const service = publishedServices.find((item) => item.slug === slug);
 
   if (!service) {
     notFound();
@@ -65,11 +69,14 @@ export default async function ServicePage({ params }: Params) {
         {service.benefits && <ServiceBenefits benefits={service.benefits} />}
         {service.cases && <ServiceCases cases={service.cases} />}
         <Documents />
-        <Geography />
+        <Geography
+          title={service.geography?.title}
+          description={service.geography?.description}
+        />
         <Reviews />
-        <Faq />
+        <Faq items={service.faq} />
       </main>
-      <Footer variant="feedback" />
+      <Footer variant="feedback" feedback={service.feedback} />
     </>
   );
 }

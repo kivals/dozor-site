@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { faq } from "@/content/faq";
+import type { FaqItem } from "@/content/types";
 
 function Toggle({ open }: { open: boolean }) {
   return (
@@ -30,7 +31,7 @@ function Toggle({ open }: { open: boolean }) {
   );
 }
 
-export function Faq() {
+export function Faq({ items = faq.items }: { items?: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(1);
 
   return (
@@ -45,7 +46,7 @@ export function Faq() {
       </div>
 
       <ul className="mt-8 flex flex-col gap-3.5 lg:mt-10">
-        {faq.items.map((item, index) => {
+        {items.map((item, index) => {
           const open = index === openIndex;
 
           return (

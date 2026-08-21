@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { env } from "@/lib/env";
+import { publishedServices } from "@/content/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = env.NEXT_PUBLIC_SITE_URL;
@@ -7,6 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: base, lastModified: now, priority: 1 },
-    { url: `${base}/uslugi`, lastModified: now, priority: 0.8 },
+    ...publishedServices.map((service) => ({
+      url: `${base}/uslugi/${service.slug}`,
+      lastModified: now,
+      priority: 0.8,
+    })),
   ];
 }

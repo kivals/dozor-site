@@ -1,11 +1,21 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LeadModalTrigger } from "@/components/forms/LeadModalTrigger";
 import { MessengerBadge } from "@/components/ui/MessengerBadge";
 import type { Service } from "@/content/types";
 
+// Falls back to the production hero frame (329/-48 in a 1457x475 card).
+const defaultImageArea = {
+  top: "-10.1%",
+  left: "22.6%",
+  width: "98%",
+  height: "120.2%",
+};
+
 export function ServiceHero({ service }: { service: Service }) {
   const hero = service.hero;
+  const imageArea = hero?.imageArea ?? defaultImageArea;
 
   return (
     <section className="relative px-4 pt-[calc(var(--header-h)+0.5rem)] sm:px-6 lg:px-7">
@@ -19,14 +29,6 @@ export function ServiceHero({ service }: { service: Service }) {
           <li aria-hidden className="text-navy/30">
             |
           </li>
-          <li>
-            <Link
-              href="/uslugi"
-              className="text-accent transition hover:opacity-80"
-            >
-              Услуги
-            </Link>
-          </li>
           <li aria-current="page" className="text-navy/50">
             - {service.title}
           </li>
@@ -35,9 +37,19 @@ export function ServiceHero({ service }: { service: Service }) {
 
       <div className="relative isolate flex min-h-[420px] flex-col justify-center overflow-hidden rounded-[20px] bg-navy px-5 py-10 lg:min-h-[475px] lg:rounded-[40px] lg:px-[60px] lg:py-10">
         {hero && (
-          // Desktop: photo keeps the design offset (329/-48 in a 1457x475 card);
+          // Desktop: photo keeps the offset from the design frame;
           // mobile falls back to a plain cover fill
-          <div className="absolute inset-0 lg:inset-auto lg:top-[-10.1%] lg:left-[22.6%] lg:h-[120.2%] lg:w-[98%]">
+          <div
+            style={
+              {
+                "--hero-img-top": imageArea.top,
+                "--hero-img-left": imageArea.left,
+                "--hero-img-width": imageArea.width,
+                "--hero-img-height": imageArea.height,
+              } as CSSProperties
+            }
+            className="absolute inset-0 lg:inset-auto lg:top-[var(--hero-img-top)] lg:left-[var(--hero-img-left)] lg:h-[var(--hero-img-height)] lg:w-[var(--hero-img-width)]"
+          >
             <Image
               src={hero.image}
               alt=""

@@ -2,11 +2,50 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import { objectTypes } from "@/content/object-types";
 import type { ObjectType } from "@/content/types";
 import { CarouselArrows } from "@/components/ui/CarouselArrows";
+
+function ObjectCard({ item }: { item: ObjectType }) {
+  const content = (
+    <>
+      <div className="relative aspect-[351/265] w-full">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          sizes="(min-width: 1024px) 340px, 82vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
+        <h3 className="text-[22px] leading-tight font-semibold text-black">
+          {item.title}
+        </h3>
+        <p className="text-sm leading-snug text-black">{item.description}</p>
+      </div>
+    </>
+  );
+
+  const className =
+    "flex h-full flex-col overflow-hidden rounded-[20px] bg-white";
+
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        className={`${className} transition hover:shadow-lg`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <article className={className}>{content}</article>;
+}
 
 export function ObjectTypes({
   items = objectTypes.items,
@@ -72,25 +111,7 @@ export function ObjectTypes({
                 key={item.slug}
                 className="min-w-0 shrink-0 grow-0 basis-[82%] sm:basis-[46%] lg:basis-[calc((100%-40px)/3)]"
               >
-                <article className="flex h-full flex-col overflow-hidden rounded-[20px] bg-white">
-                  <div className="relative aspect-[351/265] w-full">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(min-width: 1024px) 340px, 82vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1 px-6 pt-5 pb-6">
-                    <h3 className="text-[22px] leading-tight font-semibold text-black">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm leading-snug text-black">
-                      {item.description}
-                    </p>
-                  </div>
-                </article>
+                <ObjectCard item={item} />
               </li>
             ))}
           </ul>

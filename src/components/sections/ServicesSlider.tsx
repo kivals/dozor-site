@@ -19,11 +19,8 @@ const iconWidth: Record<string, number> = {
 };
 
 function ServiceCard({ service }: { service: Service }) {
-  return (
-    <Link
-      href={`/uslugi/${service.slug}`}
-      className="group flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px] transition-colors duration-500 hover:border-accent hover:bg-accent"
-    >
+  const content = (
+    <>
       <Image
         src={`/services/${service.icon}.svg`}
         alt=""
@@ -39,8 +36,26 @@ function ServiceCard({ service }: { service: Service }) {
           {service.description}
         </p>
       </div>
-    </Link>
+    </>
   );
+
+  const className =
+    "flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px]";
+
+  // Only services with their own landing page are clickable; the rest keep the
+  // static card so the hover state does not promise a link that does not exist.
+  if (service.hero) {
+    return (
+      <Link
+        href={`/uslugi/${service.slug}`}
+        className={`group ${className} transition-colors duration-500 hover:border-accent hover:bg-accent`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{content}</div>;
 }
 
 export function ServicesSlider({ services }: { services: Service[] }) {

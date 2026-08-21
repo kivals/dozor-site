@@ -8,6 +8,8 @@ const iconWidth: Record<string, number> = {
   transparency: 36,
   license: 36,
   speed: 44,
+  access: 48,
+  camera: 50,
 };
 
 export function ServiceBenefits({

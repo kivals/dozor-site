@@ -3,6 +3,11 @@ export interface ServiceHero {
   description: string;
   image: string;
   cta: string;
+  /**
+   * Desktop photo placement, taken from the Figma hero frame:
+   * the image node's offset and size as a share of the 1457x475 card.
+   */
+  imageArea?: { top: string; left: string; width: string; height: string };
 }
 
 export interface ServiceOptionsGroup {
@@ -68,6 +73,8 @@ export interface Service {
   description: string;
   icon: string;
   features?: string[];
+  /** Landing-only service: has its own page but is not shown in the services list. */
+  hiddenInList?: boolean;
   seo?: ServiceSeo;
   hero?: ServiceHero;
   objectTypes?: ObjectType[];
@@ -79,13 +86,16 @@ export interface Service {
   cases?: ServiceCases;
   /** Numbered list shown instead of the stats grid in the About section. */
   aboutHighlights?: string[];
+  /** Overrides for the shared sections at the bottom of the page. */
+  geography?: { title: string; description: string };
+  faq?: FaqItem[];
+  feedback?: FeedbackContent;
 }
 
 export interface ServicesIntro {
   eyebrow: string;
   title: string;
   subtitle: string;
-  cta: { label: string; href: string };
 }
 
 export interface ObjectType {
@@ -93,6 +103,8 @@ export interface ObjectType {
   title: string;
   description: string;
   image: string;
+  /** Set when the card links to a service page. */
+  href?: string;
 }
 
 export interface ObjectTypesContent {
@@ -180,6 +192,13 @@ export interface ContactContent {
     successTitle: string;
     successText: string;
   };
+}
+
+export interface FeedbackContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  submitLabel: string;
 }
 
 export interface DocumentItem {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { footer } from "@/content/footer";
+import type { FeedbackContent } from "@/content/types";
 import { YandexMap } from "@/components/maps/YandexMap";
 import { PhoneBlock } from "@/components/ui/PhoneBlock";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -106,7 +107,11 @@ function ContactsWithMap() {
   );
 }
 
-function FeedbackCard() {
+function FeedbackCard({
+  feedback = footer.feedback,
+}: {
+  feedback?: FeedbackContent;
+}) {
   return (
     <div className="relative overflow-hidden rounded-[20px] bg-surface px-5 py-8 sm:px-10 lg:rounded-[30px] lg:px-10 lg:py-5">
       {/* Soft glow accent from the design */}
@@ -116,17 +121,17 @@ function FeedbackCard() {
         <div className="flex flex-col gap-5 lg:flex-1">
           <div className="flex flex-col gap-2.5">
             <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
-              {footer.feedback.eyebrow}
+              {feedback.eyebrow}
             </p>
             <p className="text-3xl leading-tight font-medium text-black">
-              {footer.feedback.title}
+              {feedback.title}
             </p>
             <p className="max-w-[846px] text-base text-black">
-              {footer.feedback.subtitle}
+              {feedback.subtitle}
             </p>
           </div>
 
-          <ContactForm tone="light" submitLabel={footer.feedback.submitLabel} />
+          <ContactForm tone="light" submitLabel={feedback.submitLabel} />
         </div>
 
         <div className="flex flex-col gap-8 lg:w-[232px] lg:shrink-0">
@@ -177,15 +182,21 @@ function FeedbackCard() {
 
 export function Footer({
   variant = "contacts",
+  feedback,
 }: {
   variant?: "contacts" | "feedback";
+  feedback?: FeedbackContent;
 }) {
   return (
     <footer>
       {/* Background is full-bleed, the content stays inside the page container */}
       <div className="rounded-t-[20px] bg-navy py-10 text-white lg:rounded-t-[40px] lg:py-14">
         <div className="container-page px-2.5 lg:px-16">
-          {variant === "feedback" ? <FeedbackCard /> : <ContactsWithMap />}
+          {variant === "feedback" ? (
+            <FeedbackCard feedback={feedback} />
+          ) : (
+            <ContactsWithMap />
+          )}
 
           {/* Bottom: logo + nav + phone */}
           <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16">

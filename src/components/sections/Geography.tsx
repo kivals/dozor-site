@@ -25,7 +25,13 @@ function CityTicker() {
   );
 }
 
-export function Geography() {
+export function Geography({
+  title = geography.title,
+  description = geography.description,
+}: {
+  title?: string;
+  description?: string;
+}) {
   return (
     <section className="relative overflow-hidden rounded-[20px] bg-surface px-4 pt-8 pb-6 sm:px-6 lg:overflow-visible lg:px-[59px] lg:pt-[62px] lg:pb-[125px]">
       <div className="relative flex flex-col gap-7 lg:w-[568px]">
@@ -34,9 +40,9 @@ export function Geography() {
             {geography.eyebrow}
           </p>
           <h2 className="text-3xl leading-tight font-medium text-black">
-            {geography.title}
+            {title}
           </h2>
-          <p className="text-base text-black">{geography.description}</p>
+          <p className="text-base text-black">{description}</p>
         </div>
 
         <LeadModalTrigger className="inline-flex w-fit items-center gap-[18px] rounded-[30px] bg-accent px-[30px] py-[15px] text-base text-white transition hover:bg-accent/90">

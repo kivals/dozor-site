@@ -11,12 +11,14 @@ export const objectTypes: ObjectTypesContent = typograph({
       title: "Производственные объекты",
       description: "Охрана заводов, цехов и производственных площадок",
       image: "/object-types/proizvodstvennye.jpg",
+      href: "/uslugi/ohrana-proizvodstvennyh-obektov-v-noginske",
     },
     {
       slug: "skladskie",
       title: "Складские комплексы",
       description: "Охрана складов, терминалов и распределительных центров",
       image: "/object-types/skladskie.jpg",
+      href: "/uslugi/ohrana-skladov-v-noginske",
     },
     {
       slug: "stroitelnye",

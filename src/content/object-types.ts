@@ -25,6 +25,7 @@ export const objectTypes: ObjectTypesContent = typograph({
       title: "Строительные объекты",
       description: "Безопасность строительных площадок и временных объектов",
       image: "/object-types/stroitelnye.jpg",
+      href: "/uslugi/ohrana-stroitelnyh-obektov-v-noginske",
     },
     {
       slug: "kommercheskaya-nedvizhimost",

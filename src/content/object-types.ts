@@ -47,6 +47,7 @@ export const objectTypes: ObjectTypesContent = typograph({
       description:
         "Контроль доступа, техническая безопасность, охрана грузовых потоков",
       image: "/object-types/logisticheskie.jpg",
+      href: "/uslugi/ohrana-logisticheskih-obektov-v-noginske",
     },
   ],
 });

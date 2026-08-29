@@ -73,7 +73,7 @@ export default async function ServicePage({ params }: Params) {
           title={service.geography?.title}
           description={service.geography?.description}
         />
-        <Reviews />
+        <Reviews items={service.reviews} />
         <Faq items={service.faq} />
       </main>
       <Footer variant="feedback" feedback={service.feedback} />

@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { reviews } from "@/content/reviews";
+import type { Review } from "@/content/types";
 import { useCarousel } from "@/components/ui/useCarousel";
 import { CarouselArrows } from "@/components/ui/CarouselArrows";
 
-export function Reviews() {
+export function Reviews({ items = reviews.items }: { items?: Review[] }) {
   const [emblaRef, emblaApi, snaps, selected] = useCarousel({
     containScroll: "trimSnaps",
   });
@@ -35,7 +36,7 @@ export function Reviews() {
 
         <div ref={emblaRef} className="min-w-0 overflow-hidden lg:flex-1">
           <ul className="flex gap-2.5">
-            {reviews.items.map((review) => (
+            {items.map((review) => (
               <li
                 key={review.author}
                 className="flex min-w-0 shrink-0 grow-0 basis-[85%] flex-col gap-5 rounded-[20px] border border-surface p-[30px] sm:basis-[60%] lg:basis-[calc(33.333%-7px)]"

@@ -88,6 +88,7 @@ export interface Service {
   aboutHighlights?: string[];
   /** Overrides for the shared sections at the bottom of the page. */
   geography?: { title: string; description: string };
+  reviews?: Review[];
   faq?: FaqItem[];
   feedback?: FeedbackContent;
 }

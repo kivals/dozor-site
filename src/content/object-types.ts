@@ -38,6 +38,7 @@ export const objectTypes: ObjectTypesContent = typograph({
       title: "Коттеджные поселки и территории",
       description: "Охрана поселков, жилых комплексов и территорий",
       image: "/object-types/kottedzhnye.jpg",
+      href: "/uslugi/ohrana-kottedzhnyh-poselkov-v-noginske",
     },
     {
       slug: "logisticheskie",

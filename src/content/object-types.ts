@@ -32,6 +32,7 @@ export const objectTypes: ObjectTypesContent = typograph({
       title: "Коммерческая недвижимость",
       description: "Охрана бизнес-центров и торговых объектов",
       image: "/object-types/kommercheskaya.jpg",
+      href: "/uslugi/ohrana-kommercheskoj-nedvizhimosti-v-noginske",
     },
     {
       slug: "kottedzhnye-poselki",

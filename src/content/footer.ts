@@ -26,7 +26,7 @@ export const footer = typograph({
   ] satisfies FooterSocial[],
   nav: [
     { label: "О компании", href: "/o-kompanii" },
-    { label: "Услуги", href: "/#services" },
+    { label: "Услуги", href: "/#object-types" },
     { label: "Контроль", href: "/#control" },
     { label: "Опыт работы", href: "/#clients" },
     { label: "Вакансии", href: "/vakansii" },

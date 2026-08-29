@@ -79,7 +79,10 @@ export function ObjectTypes({
   const scrollNext = () => emblaApi?.scrollNext();
 
   return (
-    <section className={`px-4 py-10 sm:px-6 lg:px-16 lg:py-10 ${className}`}>
+    <section
+      id="object-types"
+      className={`px-4 py-10 sm:px-6 lg:px-16 lg:py-10 ${className}`}
+    >
       <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
         <div className="flex flex-col gap-8 lg:w-[314px] lg:shrink-0">
           <div className="flex flex-col gap-3">

@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
 import type { Service } from "@/content/types";
@@ -19,43 +18,25 @@ const iconWidth: Record<string, number> = {
 };
 
 function ServiceCard({ service }: { service: Service }) {
-  const content = (
-    <>
+  return (
+    <div className="flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px]">
       <Image
         src={`/services/${service.icon}.svg`}
         alt=""
         width={iconWidth[service.icon] ?? 36}
         height={36}
-        className="h-9 w-auto shrink-0 self-start transition duration-500 group-hover:brightness-0 group-hover:invert"
+        className="h-9 w-auto shrink-0 self-start"
       />
       <div className="flex flex-col gap-1.5">
-        <h3 className="text-lg leading-snug font-semibold text-black transition-colors duration-500 group-hover:text-white">
+        <h3 className="text-lg leading-snug font-semibold text-black">
           {service.title}
         </h3>
-        <p className="text-base leading-snug text-black transition-colors duration-500 group-hover:text-white">
+        <p className="text-base leading-snug text-black">
           {service.description}
         </p>
       </div>
-    </>
+    </div>
   );
-
-  const className =
-    "flex h-full flex-col gap-3 rounded-[20px] border border-surface p-[30px]";
-
-  // Only services with their own landing page are clickable; the rest keep the
-  // static card so the hover state does not promise a link that does not exist.
-  if (service.hero) {
-    return (
-      <Link
-        href={`/uslugi/${service.slug}`}
-        className={`group ${className} transition-colors duration-500 hover:border-accent hover:bg-accent`}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return <div className={className}>{content}</div>;
 }
 
 export function ServicesSlider({ services }: { services: Service[] }) {

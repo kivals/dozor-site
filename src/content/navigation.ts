@@ -8,7 +8,7 @@ export interface NavItem {
 export const navigation = {
   items: [
     { label: "О компании", href: "/#about" },
-    { label: "Услуги", href: "/#services" },
+    { label: "Услуги", href: "/#object-types" },
     { label: "Контроль", href: "/#control" },
     { label: "Опыт работы", href: "/#clients" },
     { label: "Вакансии", href: "/#vacancies" },

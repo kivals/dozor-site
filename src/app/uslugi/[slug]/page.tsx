@@ -33,9 +33,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   return {
-    title: plainText(
-      service.seo?.title ?? service.hero?.title ?? service.title,
-    ),
+    title: {
+      absolute: plainText(
+        service.seo?.title ?? service.hero?.title ?? service.title,
+      ),
+    },
     description: plainText(
       service.seo?.description ??
         service.hero?.description ??

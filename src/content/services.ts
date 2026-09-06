@@ -1517,14 +1517,14 @@ export const services: Service[] = typograph([
           title: "Охрана распределительной базы в Ногинске",
           description:
             "Внедрен строгий пропускной режим и система распознавания номеров",
-          image: "/services/raspredelitelnye-centry.jpg",
+          image: "/cases/promyshlennyy-tehnopark.jpg",
         },
         {
           slug: "sklad-elektrostal",
           title: "Защита крупного склада в Электростали",
           description:
             "Оборудовали логистический центр круглосуточными постами и автопатрулем периметра",
-          image: "/services/skladskie-terminaly.jpg",
+          image: "/cases/raspredelitelnyy-centr.jpg",
         },
         {
           slug: "transportnyy-hab",

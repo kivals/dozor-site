@@ -1254,17 +1254,17 @@ export const services: Service[] = typograph([
           image: "/cases/bc-noginsk.jpg",
         },
         {
-          slug: "it-kompaniya-elektrostal",
-          title: "Защита IT-компании в Электростали",
+          slug: "it-kompaniya",
+          title: "Защита IT-компании",
           description:
             "Внедрены умные системы контроля доступом для серверных комнат и архивов",
-          image: "/services/shtab-kvartiry.jpg",
+          image: "/cases/it-kompaniya.jpg",
         },
         {
           slug: "post-dlya-kovorkinga",
           title: "Организация поста для коворкинга",
           description: "Налажен учет резидентов с плавающим графиком",
-          image: "/services/kovorkingi.jpg",
+          image: "/cases/post-dlya-kovorkinga.jpg",
         },
       ],
     },

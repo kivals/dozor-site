@@ -4,8 +4,14 @@ import type { Lead, LeadTransport } from "../types";
 
 export const emailTransport: LeadTransport = {
   async send(lead: Lead) {
-    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, LEAD_EMAIL_TO } =
-      env;
+    const {
+      SMTP_HOST,
+      SMTP_PORT,
+      SMTP_USER,
+      SMTP_PASSWORD,
+      SMTP_FROM,
+      LEAD_EMAIL_TO,
+    } = env;
     if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD || !LEAD_EMAIL_TO) {
       throw new Error("Email transport is not configured");
     }
@@ -30,7 +36,7 @@ export const emailTransport: LeadTransport = {
       .join("\n");
 
     await transporter.sendMail({
-      from: SMTP_USER,
+      from: SMTP_FROM ?? SMTP_USER,
       to: LEAD_EMAIL_TO,
       subject: `Новая заявка с сайта — ${lead.name}`,
       text,

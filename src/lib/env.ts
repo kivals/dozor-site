@@ -9,6 +9,8 @@ const envSchema = z.object({
   SMTP_PORT: z.coerce.number().int().positive().default(465),
   SMTP_USER: z.string().optional(),
   SMTP_PASSWORD: z.string().optional(),
+  /** Sender address; defaults to SMTP_USER when the account may send as it. */
+  SMTP_FROM: z.string().email().optional(),
   /** Where lead emails are delivered. */
   LEAD_EMAIL_TO: z.string().email().optional(),
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: z.string().optional(),
@@ -25,6 +27,7 @@ export const env = envSchema.parse({
   SMTP_PORT: process.env.SMTP_PORT,
   SMTP_USER: process.env.SMTP_USER,
   SMTP_PASSWORD: process.env.SMTP_PASSWORD,
+  SMTP_FROM: process.env.SMTP_FROM,
   LEAD_EMAIL_TO: process.env.LEAD_EMAIL_TO,
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY,
   NEXT_PUBLIC_NOINDEX: process.env.NEXT_PUBLIC_NOINDEX,

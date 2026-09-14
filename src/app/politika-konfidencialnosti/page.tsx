@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
-  robots: { index: false },
 };
 
 export default function PrivacyPolicyPage() {

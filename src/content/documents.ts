@@ -13,58 +13,14 @@ export const documents: DocumentsContent = typograph({
       label: "Лицензии",
       items: [
         {
-          title: "Лицензия на осуществление частной охранной деятельности",
-          href: "/documents/licenziya-chod.pdf",
+          title:
+            "Лицензия на частную охранную деятельность ООО ЧОО «Дозор» № 4071",
+          href: "/documents/licenziya-chod-4071.pdf",
         },
         {
-          title: "Приложение к лицензии на охранную деятельность",
-          href: "/documents/licenziya-prilozhenie.pdf",
-        },
-        {
-          title: "Лицензия на охрану объектов повышенной опасности",
-          href: "/documents/licenziya-opasnye-obekty.pdf",
-        },
-        {
-          title: "Лицензия на монтаж технических средств охраны",
-          href: "/documents/licenziya-tso.pdf",
-        },
-        {
-          title: "Разрешение на использование служебного оружия",
-          href: "/documents/razreshenie-oruzhie.pdf",
-        },
-        {
-          title: "Удостоверения частных охранников 4–6 разряда",
-          href: "/documents/udostovereniya-ohrannikov.pdf",
-        },
-      ],
-    },
-    {
-      id: "documents",
-      label: "Документы",
-      items: [
-        {
-          title: "Свидетельство о государственной регистрации",
-          href: "/documents/svidetelstvo-registracii.pdf",
-        },
-        {
-          title: "Свидетельство о постановке на налоговый учет",
-          href: "/documents/svidetelstvo-nalogovyy-uchet.pdf",
-        },
-        {
-          title: "Устав частного охранного предприятия",
-          href: "/documents/ustav.pdf",
-        },
-        {
-          title: "Выписка из ЕГРЮЛ",
-          href: "/documents/vypiska-egrul.pdf",
-        },
-        {
-          title: "Договор страхования ответственности",
-          href: "/documents/dogovor-strahovaniya.pdf",
-        },
-        {
-          title: "Типовой договор на оказание охранных услуг",
-          href: "/documents/tipovoy-dogovor.pdf",
+          title:
+            "Лицензия на частную охранную деятельность ООО ЧОО «Агентство охраны и экономической безопасности „Дозор“» № 3461",
+          href: "/documents/licenziya-chod-3461.pdf",
         },
       ],
     },

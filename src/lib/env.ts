@@ -14,6 +14,8 @@ const envSchema = z.object({
   /** Where lead emails are delivered. */
   LEAD_EMAIL_TO: z.string().email().optional(),
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: z.string().optional(),
+  /** Yandex.Metrika counter id; the counter is skipped when unset. */
+  NEXT_PUBLIC_YM_COUNTER_ID: z.string().optional(),
   /** "true" closes the whole site from search engines (preview deploys). */
   NEXT_PUBLIC_NOINDEX: z.enum(["true", "false"]).default("false"),
 });
@@ -30,6 +32,7 @@ export const env = envSchema.parse({
   SMTP_FROM: process.env.SMTP_FROM,
   LEAD_EMAIL_TO: process.env.LEAD_EMAIL_TO,
   NEXT_PUBLIC_YANDEX_MAPS_API_KEY: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY,
+  NEXT_PUBLIC_YM_COUNTER_ID: process.env.NEXT_PUBLIC_YM_COUNTER_ID,
   NEXT_PUBLIC_NOINDEX: process.env.NEXT_PUBLIC_NOINDEX,
 });
 

@@ -18,6 +18,10 @@ export const defaultMetadata: Metadata = {
     siteName: company.legalName,
     url: siteUrl,
   },
+  verification: {
+    yandex: "155ccd797b3563bc",
+    google: "dYwXASisr5YXSM7OuIj-j99LarlIqgynMaf06FyhwRE",
+  },
   ...(noindex && { robots: { index: false, follow: false } }),
 };
 

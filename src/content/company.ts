@@ -11,3 +11,9 @@ export const company = {
     whatsapp: "",
   },
 } as const;
+
+/** ISO date (YYYY-MM-DD) of the last home page content update: sitemap lastModified. */
+export const homeUpdatedAt = "2026-08-30";
+
+/** ISO date (YYYY-MM-DD) of the last privacy policy update: sitemap lastModified. */
+export const privacyUpdatedAt = "2026-08-01";

@@ -10,6 +10,7 @@ export const servicesIntro: ServicesIntro = typograph({
 export const services: Service[] = typograph([
   {
     slug: "ohrana-proizvodstvennyh-obektov-v-noginske",
+    updatedAt: "2026-09-04",
     title: "Физическая охрана объектов",
     description: "Подготовленные сотрудники охраны",
     icon: "shield-check",
@@ -243,6 +244,7 @@ export const services: Service[] = typograph([
   },
   {
     slug: "ohrana-skladov-v-noginske",
+    updatedAt: "2026-09-04",
     title: "Охрана складов",
     description: "Охрана складов, терминалов и распределительных центров",
     icon: "shield-check",
@@ -509,6 +511,7 @@ export const services: Service[] = typograph([
   },
   {
     slug: "ohrana-stroitelnyh-obektov-v-noginske",
+    updatedAt: "2026-09-04",
     title: "Охрана строительных объектов",
     description: "Безопасность строительных площадок и временных объектов",
     icon: "shield-check",
@@ -778,6 +781,7 @@ export const services: Service[] = typograph([
   },
   {
     slug: "ohrana-kottedzhnyh-poselkov-v-noginske",
+    updatedAt: "2026-09-04",
     title: "Охрана коттеджных поселков",
     description: "Безопасность частного сектора и загородных территорий",
     icon: "shield-check",
@@ -1046,6 +1050,7 @@ export const services: Service[] = typograph([
   },
   {
     slug: "ohrana-kommercheskoj-nedvizhimosti-v-noginske",
+    updatedAt: "2026-09-06",
     title: "Охрана коммерческой недвижимости",
     description: "Безопасность офисов, бизнес-центров и коворкингов",
     icon: "lock-shield",
@@ -1315,6 +1320,7 @@ export const services: Service[] = typograph([
   },
   {
     slug: "ohrana-logisticheskih-obektov-v-noginske",
+    updatedAt: "2026-09-06",
     title: "Охрана логистических объектов",
     description: "Безопасность терминалов, хабов и распределительных центров",
     icon: "access",

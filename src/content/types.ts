@@ -75,6 +75,8 @@ export interface Service {
   features?: string[];
   /** Landing-only service: has its own page but is not shown in the services list. */
   hiddenInList?: boolean;
+  /** ISO date (YYYY-MM-DD) of the last content update: sitemap lastModified. */
+  updatedAt?: string;
   seo?: ServiceSeo;
   hero?: ServiceHero;
   objectTypes?: ObjectType[];

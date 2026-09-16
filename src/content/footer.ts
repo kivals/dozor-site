@@ -32,6 +32,16 @@ export const footer = typograph({
     { label: "Вакансии", href: "/#vacancies" },
     { label: "Контакты", href: "/#contacts" },
   ] satisfies FooterNavItem[],
+  legal: [
+    {
+      label: "Политика обработки персональных данных",
+      href: "/politika-konfidencialnosti",
+    },
+    {
+      label: "Согласие на обработку персональных данных",
+      href: "/soglasie-na-obrabotku-personalnyh-dannyh",
+    },
+  ] satisfies FooterNavItem[],
   copyright: "ГК «Дозор» 2000–2026 ©",
   feedback: {
     eyebrow: "обратная связь",

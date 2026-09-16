@@ -89,7 +89,7 @@ export function ContactForm({
           <span className={consentClasses[tone]}>
             Я даю согласие на обработку моих{" "}
             <Link
-              href="/politika-konfidencialnosti"
+              href="/soglasie-na-obrabotku-personalnyh-dannyh"
               className="underline underline-offset-2 hover:text-accent"
             >
               персональных данных

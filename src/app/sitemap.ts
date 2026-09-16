@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { env } from "@/lib/env";
-import { homeUpdatedAt, privacyUpdatedAt } from "@/content/company";
+import { homeUpdatedAt } from "@/content/company";
+import { consent, privacyPolicy } from "@/content/legal";
 import { publishedServices } from "@/content/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     {
       url: `${base}/politika-konfidencialnosti`,
-      lastModified: new Date(privacyUpdatedAt),
+      lastModified: new Date(privacyPolicy.updatedAt),
+      priority: 0.3,
+    },
+    {
+      url: `${base}/soglasie-na-obrabotku-personalnyh-dannyh`,
+      lastModified: new Date(consent.updatedAt),
       priority: 0.3,
     },
   ];

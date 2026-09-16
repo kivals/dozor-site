@@ -250,3 +250,18 @@ export interface ReviewsContent {
   subtitle: string;
   items: Review[];
 }
+
+export interface LegalSection {
+  title: string;
+  paragraphs?: string[];
+  items?: string[];
+  note?: string;
+}
+
+export interface LegalDocument {
+  title: string;
+  /** ISO date (YYYY-MM-DD) of the current revision. */
+  updatedAt: string;
+  intro?: string[];
+  sections: LegalSection[];
+}

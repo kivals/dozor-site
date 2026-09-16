@@ -210,6 +210,18 @@ export function Footer({
                 className="h-auto w-[160px]"
               />
               <p className="text-xs text-white">{footer.copyright}</p>
+              <ul className="flex flex-col gap-1.5">
+                {footer.legal.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-xs text-white/70 transition-colors hover:text-accent"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <nav className="flex flex-wrap gap-x-8 gap-y-3">

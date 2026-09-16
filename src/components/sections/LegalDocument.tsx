@@ -8,7 +8,7 @@ const dateFormatter = new Intl.DateTimeFormat("ru-RU", {
 
 export function LegalDocument({ document }: { document: LegalDocumentContent }) {
   return (
-    <section className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto w-full max-w-3xl px-4 pt-[calc(var(--header-h)+2rem)] pb-16 sm:px-6 lg:px-8">
       <h1 className="text-3xl leading-tight font-medium text-black">
         {document.title}
       </h1>

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: privacyPolicy.title,
   description:
     "Порядок обработки и защиты персональных данных пользователей сайта ГК «Дозор» в соответствии с Федеральным законом №152-ФЗ.",
+  alternates: { canonical: "/politika-konfidencialnosti" },
 };
 
 export default function PrivacyPolicyPage() {

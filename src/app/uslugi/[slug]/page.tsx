@@ -43,6 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         service.hero?.description ??
         service.description,
     ),
+    alternates: { canonical: `/uslugi/${service.slug}` },
   };
 }
 

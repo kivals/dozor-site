@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: consent.title,
   description:
     "Условия согласия на обработку персональных данных, которое пользователь предоставляет при отправке формы на сайте ГК «Дозор».",
+  alternates: { canonical: "/soglasie-na-obrabotku-personalnyh-dannyh" },
 };
 
 export default function ConsentPage() {

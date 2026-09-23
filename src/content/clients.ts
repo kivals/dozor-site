@@ -17,7 +17,7 @@ export const clients: ClientsContent = typograph({
     { name: "Объединённые кондитеры", logo: "obedinennye-konditery", width: 205 },
     { name: "Oriflame", logo: "oriflame", width: 80 },
     { name: "Азбука вкуса", logo: "azbuka-vkusa", width: 85 },
-    { name: "Партнёр", logo: "partner-a", width: 80 },
+    { name: "Партнёр", logo: "partner-a-v2", width: 80 },
     { name: "Ашан", logo: "auchan", width: 106 },
     { name: "Haier", logo: "haier", width: 161 },
     { name: "Зелинский групп", logo: "zelinsky", width: 206 },

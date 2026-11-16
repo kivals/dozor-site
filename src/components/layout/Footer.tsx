@@ -202,7 +202,7 @@ export function Footer({
           <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
             <div className="flex flex-col gap-3">
               <Image
-                src="/footer/logo.png"
+                src="/footer/logo.svg"
                 alt="ГК «Дозор»"
                 width={184}
                 height={57}

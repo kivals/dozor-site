@@ -1,0 +1,8 @@
+el-dozor.ru {
+	encode zstd gzip
+	reverse_proxy app:3000
+}
+
+www.el-dozor.ru {
+	redir https://el-dozor.ru{uri} permanent
+}
